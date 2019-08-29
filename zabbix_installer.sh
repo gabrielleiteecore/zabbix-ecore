@@ -1,5 +1,13 @@
-#!/bin/bash
-mv ~/zabbix/* /etc/
+#instala
+echo "Baixando e instalando o Zabbix Agent"
+yum install -y wget
+wget https://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-1.el7.noarch.rpm
+rpm -Uvh zabbix-release-4.0-1.el7.noarch.rpm
+yum install -y zabbix-agent
+
+#limpa arquivo
+echo "Limpando arquivo de configuração do Zabbix"
+echo "" > /etc/zabbix/zabbix_agentd.conf
 
 echo "Insert hostname:"
 read name
@@ -26,4 +34,4 @@ echo "Iniciando serviço do Zabbix Agent e adicionando ele ao chkconfig"
 systemctl enable zabbix-agent
 service zabbix-agent start
 
-echo "Por favor, execute o comando "service zabbix-agent status" para validar se está o serviço está running."
+echo "Por favor, execute o comando service zabbix-agent status para validar se está o serviço está running."
