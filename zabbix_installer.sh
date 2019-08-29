@@ -34,4 +34,4 @@ echo "Iniciando serviço do Zabbix Agent e adicionando ele ao chkconfig"
 systemctl enable zabbix-agent
 service zabbix-agent start
 
-echo "Por favor, execute o comando service zabbix-agent status para validar se está o serviço está running."
+echo "Por favor, execute o comando "service zabbix-agent status" para validar se está o serviço está running."
